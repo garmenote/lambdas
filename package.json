@@ -1,0 +1,17 @@
+{
+  "name": "garmetnote-lambda",
+  "version": "1.0.0",
+  "description": "",
+  "main": "addStyles.js",
+  "scripts": {
+    "run": "node addStyles.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "predeploy": "zip -r garmenote.zip * -x *.zip *.log",
+    "deploy": "— zip-file fileb://garmenote.zip"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pg-promise": "^8.5.5"
+  }
+}
