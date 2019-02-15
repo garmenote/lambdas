@@ -9,12 +9,4 @@ const handler = async (event, context) => {
   }
 };
 
-handler()
-.then((res) => {
-  console.log(res);
-})
-.catch((err) => {
-  console.log(err);
-})
-
 module.exports = { handler };
