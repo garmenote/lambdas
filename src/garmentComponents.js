@@ -1,9 +1,9 @@
 const dataStore = require('../services/dataStore');
 const { LIMIT_ROWS } = require('../constants/common')
 
-const getBuyers = async () =>  {
+const getGarmentComponents = async () =>  {
   try {
-    const prepareStatement = `SELECT buyer_name FROM buyers LIMIT ${LIMIT_ROWS}`;
+    const prepareStatement = 'SELECT component_name FROM components LIMIT;';
     const result =  await dataStore.dbInstance.any(prepareStatement);
     return result;
   } catch (error) {
@@ -12,10 +12,10 @@ const getBuyers = async () =>  {
   }
 };
 
-const addBuyer = async (buyerName) => {
+const addGarmentComponent = async (garmentComponentName) => {
   try {
-    const prepareStatement = 'INSERT INTO buyers (buyer_name) VALUES ${buyerName}';
-    const result =  await dataStore.dbInstance.any(prepareStatement, { buyerName });
+    const prepareStatement = 'INSERT INTO components (component_name) VALUES ${garmentComponentName}';
+    const result =  await dataStore.dbInstance.any(prepareStatement, { garmentComponentName });
     return result;
   } catch (error) {
     console.error(error);
@@ -25,6 +25,6 @@ const addBuyer = async (buyerName) => {
 
 
 module.exports = {
-  getBuyers,
-  addBuyer
+  getGarmentComponents,
+  addGarmentComponent
 }
