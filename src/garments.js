@@ -1,6 +1,6 @@
 const dataStore = require('../services/dataStore');
 
-const getGarments = async () =>  {
+const getGarments = async (event, context) =>  {
   try {
     const prepareStatement = 'SELECT garments_name FROM garments LIMIT;';
     const result =  await dataStore.dbInstance.any(prepareStatement);
@@ -11,8 +11,9 @@ const getGarments = async () =>  {
   }
 };
 
-const addGarment = async (garmentName) => {
+const addGarment = async (event, context) => {
   try {
+    const { garmentName } = event
     const prepareStatement = 'INSERT INTO garments (garments_name) VALUES ${garmentName}';
     const result =  await dataStore.dbInstance.any(prepareStatement, { garmentName });
     return result;
